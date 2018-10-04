@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { Mutation } from 'react-apollo';
-import { ADD_ORGANISER } from './gql';
-import { Formik, Form, Field } from 'formik';
+import React, { Component } from "react";
+import { Mutation } from "react-apollo";
+import { ADD_ORGANISER } from "./gql";
+import { Formik, Form, Field } from "formik";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Yup = require('yup');
+const Yup = require("yup");
 
 // Validation Schema
 
 const validationSchema = Yup.object().shape({
-  organiserName: Yup.string().required('Required!')
+  organiserName: Yup.string().required("Required!")
 });
 
 class AddOrganiser extends Component {
@@ -44,7 +44,7 @@ class AddOrganiser extends Component {
                     }
                   });
                   actions.resetForm({});
-                  this.notify('Organiser Saved Successfully');
+                  this.notify("Organiser Saved Successfully");
                   actions.setSubmitting(false);
                 }}
                 render={({ errors, touched, isSubmitting, dirty, values }) => {
@@ -62,13 +62,13 @@ class AddOrganiser extends Component {
                                 <Field
                                   type="text"
                                   name="organiserName"
-                                  placeholder="Organiser Name*"
-                                  value={values.organiserName || ''}
+                                  placeholder="Organiser Name"
+                                  value={values.organiserName || ""}
                                   className={
                                     errors.organiserName &&
                                     touched.organiserName
-                                      ? 'form-control text-input  '
-                                      : 'form-control text-input'
+                                      ? "form-control text-input  "
+                                      : "form-control text-input"
                                   }
                                 />
                                 {touched.organiserName &&
